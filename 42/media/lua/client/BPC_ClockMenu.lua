@@ -60,7 +60,6 @@ local function setClock(player, object)
 end
 
 local function onFillWorldObjectContextMenu(playerIndex, context, worldObjects, test)
-    if test then return end
     local player = getSpecificPlayer(playerIndex)
     if not player then return end
 
@@ -73,6 +72,16 @@ local function onFillWorldObjectContextMenu(playerIndex, context, worldObjects, 
                 local object = objects:get(j)
                 if not seen[object] and BPC_ClockState.isClock(object) then
                     seen[object] = true
+                    -- Build 42 skips the menu when its own interaction fetch found nothing.
+                    -- Keep the menu open for a clock identified by this mod.
+                    local fetch = ISWorldObjectContextMenu and ISWorldObjectContextMenu.fetchVars
+                    if fetch and fetch.c == 0 then
+                        fetch.c = 1
+                    end
+                    if test then
+                        ISWorldObjectContextMenu.setTest()
+                        return
+                    end
                     local state = BPC_ClockState.update(object)
                     local label
                     if BPC_ClockState.isRunning(state) then
