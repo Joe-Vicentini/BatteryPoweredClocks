@@ -103,4 +103,4 @@ local function onFillWorldObjectContextMenu(playerIndex, context, worldObjects, 
     end
 end
 
-Events.OnFillWorldObjectContextMenu.Add(onFillWorldObjectContextMenu)
+Events.OnPreFillWorldObjectContextMenu.Add(onFillWorldObjectContextMenu)

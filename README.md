@@ -6,6 +6,9 @@ A Project Zomboid **Build 42** mod that gives wall clocks removable batteries.
 
 Copy this repository to your Zomboid mods folder and enable **Battery-Powered Clocks**.
 The Build 42 manifest and code are in `42/`.
+The `common/` directory is intentionally present for Build 42 mod discovery. For an existing save,
+enable the mod in that save's mod list and restart the game before testing.
+
 
 ## Behavior
 
