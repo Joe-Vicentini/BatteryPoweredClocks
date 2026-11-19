@@ -2,7 +2,10 @@
 BPC_ClockState = {}
 
 local CLOCK_SPRITES = {
-    location_community_school_01_32 = true, -- Wall Clock
+    location_community_school_01_32 = true, -- Wall Clock (south)
+    location_community_school_01_33 = true, -- Wall Clock
+    location_community_school_01_34 = true, -- Wall Clock
+    location_community_school_01_35 = true, -- Wall Clock
     walls_decoration_01_105 = true,        -- Square Wall Clock
 }
 
