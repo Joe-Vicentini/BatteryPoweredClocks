@@ -1,0 +1,7 @@
+{
+  "ContextMenu_BPC_ClockStatus": "Clock: %1 (%2%% battery)",
+  "ContextMenu_BPC_ClockStopped": "Clock stopped: %1 (no power)",
+  "ContextMenu_BPC_RemoveBattery": "Remove clock battery",
+  "ContextMenu_BPC_InsertBattery": "Insert clock battery",
+  "ContextMenu_BPC_SetClock": "Set clock time"
+}
