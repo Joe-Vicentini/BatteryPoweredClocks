@@ -59,57 +59,52 @@ local function setClock(player, object)
     end
 end
 
-local function onFillWorldObjectContextMenu(playerIndex, context, worldObjects, test)
-    local player = getSpecificPlayer(playerIndex)
-    if not player then return end
+-- Build 42's world-menu element system runs even when the legacy menu finds no interaction.
+local function fillClockMenu(data)
+    local player = data.player
+    local context = data.context
+    if not player or not context then return false end
 
     local seen = {}
-    for i = 1, #worldObjects do
-        local square = worldObjects[i] and worldObjects[i]:getSquare()
-        if square then
-            local objects = square:getObjects()
-            for j = 0, objects:size() - 1 do
-                local object = objects:get(j)
-                if not seen[object] and BPC_ClockState.isClock(object) then
-                    seen[object] = true
-                    -- Build 42 skips the menu when its own interaction fetch found nothing.
-                    -- Keep the menu open for a clock identified by this mod.
-                    local fetch = ISWorldObjectContextMenu and ISWorldObjectContextMenu.fetchVars
-                    if fetch and fetch.c == 0 then
-                        fetch.c = 1
-                    end
-                    if test then
-                        ISWorldObjectContextMenu.setTest()
-                        return
-                    end
-                    local state = BPC_ClockState.update(object)
-                    local label
-                    if BPC_ClockState.isRunning(state) then
-                        label = getText("ContextMenu_BPC_ClockStatus",
-                            BPC_ClockState.formatTime(state), math.floor(state.charge))
-                    else
-                        label = getText("ContextMenu_BPC_ClockStopped", BPC_ClockState.formatTime(state))
-                    end
-                    local status = context:addOption(label, nil, nil)
-                    status.notAvailable = true
+    for _, object in ipairs(data.objects or {}) do
+        if not seen[object] and BPC_ClockState.isClock(object) then
+            if data.test then return true end
+            seen[object] = true
+            local state = BPC_ClockState.update(object)
+            local label
+            if BPC_ClockState.isRunning(state) then
+                label = getText("ContextMenu_BPC_ClockStatus",
+                    BPC_ClockState.formatTime(state), math.floor(state.charge))
+            else
+                label = getText("ContextMenu_BPC_ClockStopped", BPC_ClockState.formatTime(state))
+            end
+            local status = context:addOption(label, nil, nil)
+            status.notAvailable = true
 
-                    if state.hasBattery then
-                        context:addOption(getText("ContextMenu_BPC_RemoveBattery"),
-                            player, removeBattery, object)
-                    elseif findBattery(player:getInventory()) then
-                        context:addOption(getText("ContextMenu_BPC_InsertBattery"),
-                            player, insertBattery, object)
-                    end
+            if state.hasBattery then
+                context:addOption(getText("ContextMenu_BPC_RemoveBattery"),
+                    player, removeBattery, object)
+            elseif findBattery(player:getInventory()) then
+                context:addOption(getText("ContextMenu_BPC_InsertBattery"),
+                    player, insertBattery, object)
+            end
 
-                    if BPC_ClockState.isRunning(state) and BPC_ClockState.isOutOfSync(state)
-                        and findWatch(player:getInventory()) then
-                        context:addOption(getText("ContextMenu_BPC_SetClock"),
-                            player, setClock, object)
-                    end
-                end
+            if BPC_ClockState.isRunning(state) and BPC_ClockState.isOutOfSync(state)
+                and findWatch(player:getInventory()) then
+                context:addOption(getText("ContextMenu_BPC_SetClock"),
+                    player, setClock, object)
             end
         end
     end
+    return false
 end
 
-Events.OnPreFillWorldObjectContextMenu.Add(onFillWorldObjectContextMenu)
+-- Registered before the vanilla world-menu elements are instantiated on game start.
+ISWorldMenuElements = ISWorldMenuElements or {}
+ISWorldMenuElements.BatteryPoweredClocks = function()
+    local element = ISMenuElement.new()
+    function element.createMenu(data)
+        return fillClockMenu(data)
+    end
+    return element
+end
