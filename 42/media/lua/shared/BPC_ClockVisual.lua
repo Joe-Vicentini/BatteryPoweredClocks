@@ -1,12 +1,8 @@
--- Experimental: render stopped clocks using a new sprite name with vanilla artwork.
--- Only the existing world object is changed; no replacement object is created.
--- Set false to restore vanilla sprites when clocks are next encountered.
-local TEST_RUNTIME_STATIC_CLOCKS = true
-
+-- Show a stopped clock with the static vanilla tile as an overlay.
+-- The underlying world-object sprite always remains a registered vanilla tile.
 BPC_ClockVisual = {}
 
--- Source tiles from Build 42's generated clocks.txt, plus two earlier variants.
-local STATIC_TEXTURES = {
+local STATIC_CLOCK_SPRITES = {
     location_community_school_01_32 = "location_community_school_01_32",
     location_community_school_01_33 = "location_community_school_01_33",
     location_community_school_01_34 = "location_community_school_01_34",
@@ -27,91 +23,58 @@ local STATIC_TEXTURES = {
     animated_clock_01_7 = "walls_detailing_02_59",
 }
 
-local spriteCache = {}
-local activeObjects = {}
-
+-- Recognize clocks saved by the earlier runtime-sprite experiment, even if
+-- their temporary sprite could not be resolved when the chunk was loaded.
 function BPC_ClockVisual.isStoppedSprite(object)
     if not object then return false end
     local original = object:getModData().BPC_RuntimeOriginalSprite
-    return original ~= nil and STATIC_TEXTURES[original] ~= nil
+    return original ~= nil and STATIC_CLOCK_SPRITES[original] ~= nil
 end
 
-local function makeStaticSprite(original, baseSprite)
-    local success, result = pcall(function()
-        local sprite = IsoSprite.new()
-        if not sprite:LoadSingleTexture(STATIC_TEXTURES[original]) then return nil end
-        sprite:setName("BPC_Stopped_" .. original)
-        sprite:AddProperties(baseSprite)
-        return sprite
-    end)
-    if success then return result end
-    return nil
-end
-
--- A runtime sprite has no persistent tile ID. Restore every tracked vanilla
--- sprite before the single-player world is saved, avoiding unresolvable tiles.
-local function restoreOriginal(object)
-    local data = object:getModData()
-    local original = data.BPC_RuntimeOriginalSprite
-    if not original then
-        activeObjects[object] = nil
-        return
-    end
-    local success = pcall(function()
-        if object:getSpriteName() ~= original then
-            object:setSpriteFromName(original)
-        end
-    end)
-    if success then
-        data.BPC_RuntimeOriginalSprite = nil
-        activeObjects[object] = nil
-        object:transmitModData()
-    end
-end
-
-function BPC_ClockVisual.restoreBeforeSave()
-    for object in pairs(activeObjects) do
-        restoreOriginal(object)
-    end
-end
-
-if Events and Events.OnSave then
-    Events.OnSave.Add(BPC_ClockVisual.restoreBeforeSave)
+local function overlayName(object)
+    local sprite = object:getOverlaySprite()
+    return sprite and sprite:getName() or nil
 end
 
 function BPC_ClockVisual.sync(object, state)
-    -- Runtime-only sprites aren't synchronized across multiplayer clients.
     if (isClient and isClient()) or (isServer and isServer()) then return end
 
     local data = object:getModData()
-    local original = data.BPC_RuntimeOriginalSprite
-    local running = state.hasBattery and state.charge > 0
+    local legacySprite = data.BPC_RuntimeOriginalSprite
+    if legacySprite then
+        if not STATIC_CLOCK_SPRITES[legacySprite] then return end
+        local restored = pcall(function() object:setSpriteFromName(legacySprite) end)
+        if not restored then return end
+        data.BPC_RuntimeOriginalSprite = nil
+        object:transmitModData()
+    end
 
-    if not TEST_RUNTIME_STATIC_CLOCKS or running then
-        if original then restoreOriginal(object) end
+    if state.hasBattery and state.charge > 0 then
+        if data.BPC_StoppedOverlay then
+            local previous = data.BPC_PreviousOverlaySprite
+            local restored = pcall(function()
+                object:setOverlaySprite(type(previous) == "string" and previous or nil, false)
+            end)
+            if restored then
+                data.BPC_StoppedOverlay = nil
+                data.BPC_PreviousOverlaySprite = nil
+                object:transmitModData()
+            end
+        end
         return
     end
 
-    original = original or object:getSpriteName()
-    if not STATIC_TEXTURES[original] then return end
-    local name = "BPC_Stopped_" .. original
-    if object:getSpriteName() == name then return end
+    local staticSprite = STATIC_CLOCK_SPRITES[object:getSpriteName()]
+    if not staticSprite then return end
+    if data.BPC_StoppedOverlay and overlayName(object) == staticSprite then return end
 
-    local baseSprite = object:getSprite()
-    if not baseSprite then return end
-    -- When a save reloads a stopped clock, its vanilla sprite ID restores the
-    -- original tile; reapply the custom visual next time it is encountered.
-    local sprite = spriteCache[original]
-    if not sprite then
-        sprite = makeStaticSprite(original, baseSprite)
-        if not sprite then return end
-        spriteCache[original] = sprite
+    local previous = data.BPC_PreviousOverlaySprite
+    if not data.BPC_StoppedOverlay then
+        previous = overlayName(object) or false
     end
-
-    local success = pcall(function() object:setSprite(sprite) end)
-    if success then
-        data.BPC_RuntimeOriginalSprite = original
-        activeObjects[object] = true
-        object:transmitModData()
-    end
+    local applied = pcall(function() object:setOverlaySprite(staticSprite, false) end)
+    if not applied then return end
+    data.BPC_PreviousOverlaySprite = previous
+    data.BPC_StoppedOverlay = true
+    object:transmitModData()
 end

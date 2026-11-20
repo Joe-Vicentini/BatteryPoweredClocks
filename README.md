@@ -35,35 +35,29 @@ including when the clock was unloaded.
 - `BatteryPoweredClocks.AgeInitialBatteries`: subtract elapsed in-game days of drain when first discovered (default on).
 - `BatteryPoweredClocks.AutoSetOnReplace`: auto-sync on battery insertion if the player has a watch (default on).
 
-## Experimental stopped-clock runtime sprite
+## Stopped-clock visuals and loaded clocks
 
-The failed dummy-object experiment is disabled. Previously created dummy objects
-are restored to ordinary clocks when their context menu is opened.
+In single-player, stopped clocks retain their registered vanilla main sprite.
+The mod uses the matching vanilla static clock tile as an overlay instead of
+assigning a runtime-only sprite, so chunk serialization never needs the
+temporary `BPC_Stopped_*` sprite ID. Existing clocks with a legacy runtime
+sprite are restored to their original tile when loaded. No artwork is bundled.
 
-The new experiment is enabled by `TEST_RUNTIME_STATIC_CLOCKS = true` in
-`42/media/lua/shared/BPC_ClockVisual.lua`. On an encountered clock with a dead
-or removed battery, it creates an unregistered `IsoSprite` with a unique name,
-loads the existing vanilla static clock tile texture, and assigns the new sprite
-to the original world object. The test does not replace any global sprite-manager
-entries. Because the new runtime sprite lacks a persistent tile ID, an `OnSave`
-handler restores tracked clocks to their original vanilla sprite before the
-single-player world save. Working clocks use their original sprite. No vanilla
-artwork is bundled.
+Clocks are initialized or refreshed when their 10x10 chunk loads, including
+clocks that are already depleted on first encounter. Loaded clocks are checked
+once per in-game minute so batteries reaching 0% stop without a context-menu
+interaction. A small initial-chunk scan covers loading an existing save.
+Unloaded clocks continue to use elapsed-world-time calculations.
 
-**Rollback:** Set `TEST_RUNTIME_STATIC_CLOCKS = false`, restart, and interact
-with each affected clock to restore the original sprite; then revert this
-commit if desired. If the previous experiment left dummies, let the new code
-restore them on interaction before reverting. Always test in a backup save.
-Runtime sprite rendering and save/reload behavior are unverified inside
-Project Zomboid. A chunk saved or unloaded outside the `OnSave` event might
-still serialize the unregistered sprite, so use only a disposable backup save.
-Stopped clocks revert to their vanilla animated appearance when saved and
-can be visually retried by interacting with them again.
+**Visual limitation:** The static overlay uses registered vanilla artwork, but
+its ability to cover Build 42's separately rendered moving hands is not yet
+confirmed in game. Verify this on a disposable backup save before relying on it.
+The mod retains any previous overlay and restores it when the clock is powered.
+The previous dummy-object experiment remains disabled, with compatibility
+restoration for old dummies until that migration can be retired.
 
 ## Current limits
 
-This is a single-player visual experiment. It may not stop the game's animated
-hands if the engine caches clock-script data independently of the sprite name.
-It recognizes the known Build 42 vanilla clock sprites; modded clocks with
-other sprites are not automatically recognized. Multiplayer visual changes
-are disabled until a supported synchronization method is implemented.
+The clock state and overlay are implemented for single-player. Multiplayer
+visual handling and authoritative clock state remain unimplemented. Modded
+clock sprites not on the known Build 42 list are not automatically recognized.
