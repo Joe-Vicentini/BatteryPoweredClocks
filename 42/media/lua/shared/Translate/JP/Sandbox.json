@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "電池式の壁時計",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "電池消耗量（ゲーム内1日あたり %）",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "ゲーム内の1日で減少する充電率のポイント数。0で消耗を無効にします。",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "初期充電量の下限（%）",

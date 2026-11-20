@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Paristokäyttöiset kellot",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pariston kuluminen (% pelipäivässä)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Pelipäivässä kuluvat prosenttiyksiköt. 0 poistaa kulumisen käytöstä.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Alkuvarauksen vähimmäistaso (%)",

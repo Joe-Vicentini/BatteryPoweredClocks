@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Patareitoitel kellad",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Patarei kulu (% mängupäevas)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Iga mängupäevaga kaotatavad protsendipunktid. 0 lülitab patarei kulu välja.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimaalne alglaetus (%)",

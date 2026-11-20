@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Hodiny na baterie",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Vybíjení baterie (% za herní den)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Procentní body ztracené za herní den. 0 vypne vybíjení.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimální počáteční nabití (%)",

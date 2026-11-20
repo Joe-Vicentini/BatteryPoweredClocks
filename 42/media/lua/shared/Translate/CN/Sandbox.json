@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "电池驱动的时钟",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "电池消耗（每游戏日 %）",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "每个游戏日消耗的电量百分点。设为 0 可关闭电池消耗。",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "最低初始电量（%）",

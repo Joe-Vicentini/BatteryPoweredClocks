@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "건전지로 작동하는 시계",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "건전지 소모량 (게임 내 하루당 %)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "게임 내 하루마다 감소하는 충전량의 퍼센트포인트입니다. 0이면 소모하지 않습니다.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "최소 초기 충전량 (%)",

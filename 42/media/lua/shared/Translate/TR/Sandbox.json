@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Pilli saatler",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pil tüketimi (oyun günü başına %)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Her oyun gününde kaybedilen yüzde puanı. 0 pil tüketimini kapatır.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Asgari başlangıç şarjı (%)",

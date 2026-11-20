@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Ceasuri cu baterii",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consum baterie (% pe zi de joc)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Puncte procentuale pierdute pe zi de joc. 0 dezactivează consumul.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Încărcare inițială minimă (%)",

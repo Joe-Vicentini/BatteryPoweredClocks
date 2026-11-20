@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Rellotges amb piles",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consum de pila (% per dia de joc)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Punts percentuals consumits per dia de joc. 0 desactiva el consum.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Càrrega inicial mínima (%)",

@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Elemes órák",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Elemmerülés (% játéknaponként)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Játéknaponként elveszített százalékpontok. A 0 kikapcsolja a merülést.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimális kezdeti töltöttség (%)",

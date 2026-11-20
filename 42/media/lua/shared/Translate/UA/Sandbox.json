@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Годинники на батарейках",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Розряд батарейки (% за ігровий день)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Відсоткових пунктів заряду за ігровий день. 0 вимикає розряд.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Мінімальний початковий заряд (%)",

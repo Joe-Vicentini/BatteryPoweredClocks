@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Mga orasan na de-baterya",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pagkaubos ng baterya (% bawat araw sa laro)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Mga porsiyentong puntos na nababawas bawat araw sa laro. Ang 0 ay walang pagkaubos.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Pinakamababang paunang karga (%)",

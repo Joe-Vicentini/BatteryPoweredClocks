@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Klokken op batterijen",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batterijverbruik (% per speldag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Procentpunten verbruikt per speldag. 0 schakelt batterijverbruik uit.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimale beginlading (%)",

@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Jam bertenaga baterai",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pengurasan baterai (% per hari permainan)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Poin persentase yang berkurang setiap hari permainan. 0 menonaktifkan pengurasan.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Daya awal minimum (%)",

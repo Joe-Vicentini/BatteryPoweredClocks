@@ -1,5 +1,5 @@
 {
-  "Sandbox_BatteryPoweredClocks": "Orologi a batteria",
+  "Sandbox_BatteryPoweredClocks": "Clocks Have Batteries",
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consumo batteria (% per giorno di gioco)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Punti percentuali persi per giorno di gioco. 0 disattiva il consumo.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Carica iniziale minima (%)",
