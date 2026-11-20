@@ -1,5 +1,6 @@
 -- Clock state lives on each encountered world object, never in a map-wide registry.
 BPC_ClockState = {}
+require "BPC_ClockSwap"
 
 -- Includes the original tiles and their animated replacements from
 -- Build 42's generated media/scripts/clocks.txt.
@@ -22,29 +23,6 @@ local CLOCK_SPRITES = {
     animated_clock_01_5 = true,
     animated_clock_01_6 = true,
     animated_clock_01_7 = true,
-}
-
--- Experimental: set to false to restore original sprites as clocks are visited.
--- Only the sprite is changed; the IsoObject and BPC_Clock state are retained.
-local TEST_STATIC_STOPPED_CLOCKS = true
-
-local STATIC_CLOCK_SPRITES = {
-    location_community_school_01_32 = "location_community_school_01_32",
-    location_community_school_01_33 = "location_community_school_01_33",
-    walls_decoration_01_104 = "walls_decoration_01_104",
-    walls_decoration_01_105 = "walls_decoration_01_105",
-    walls_detailing_02_56 = "walls_detailing_02_56",
-    walls_detailing_02_57 = "walls_detailing_02_57",
-    walls_detailing_02_58 = "walls_detailing_02_58",
-    walls_detailing_02_59 = "walls_detailing_02_59",
-    animated_clock_01_0 = "location_community_school_01_32",
-    animated_clock_01_1 = "location_community_school_01_33",
-    animated_clock_01_2 = "walls_decoration_01_104",
-    animated_clock_01_3 = "walls_decoration_01_105",
-    animated_clock_01_4 = "walls_detailing_02_56",
-    animated_clock_01_5 = "walls_detailing_02_57",
-    animated_clock_01_6 = "walls_detailing_02_58",
-    animated_clock_01_7 = "walls_detailing_02_59",
 }
 
 local function options()
@@ -70,7 +48,7 @@ end
 function BPC_ClockState.isClock(object)
     if not object or not object:getSquare() then return false end
     local sprite = object:getSpriteName()
-    return sprite ~= nil and CLOCK_SPRITES[sprite] == true
+    return BPC_ClockSwap.isDummy(object) or (sprite ~= nil and CLOCK_SPRITES[sprite] == true)
 end
 
 -- A clock is only initialized when a player opens its context menu.
@@ -100,28 +78,6 @@ function BPC_ClockState.get(object)
     return dataClock
 end
 
--- Restore the original sprite on power-up, or when the experiment is disabled.
--- The test intentionally does not create or delete any world objects.
-local function updateClockSprite(object, state)
-    if state.preStopSprite and (not TEST_STATIC_STOPPED_CLOCKS
-        or (state.hasBattery and state.charge > 0)) then
-        object:setSpriteFromName(state.preStopSprite)
-        object:transmitUpdatedSprite()
-        state.preStopSprite = nil
-        object:transmitModData()
-    elseif TEST_STATIC_STOPPED_CLOCKS and not state.preStopSprite
-        and (not state.hasBattery or state.charge <= 0) then
-        local sprite = object:getSpriteName()
-        local staticSprite = STATIC_CLOCK_SPRITES[sprite]
-        if staticSprite then
-            state.preStopSprite = sprite
-            object:setSpriteFromName(staticSprite)
-            object:transmitUpdatedSprite()
-            object:transmitModData()
-        end
-    end
-end
-
 function BPC_ClockState.update(object)
     local state = BPC_ClockState.get(object)
     local hours = nowHours()
@@ -133,8 +89,8 @@ function BPC_ClockState.update(object)
         state.charge = math.max(0, state.charge - elapsed * rate)
     end
     state.updatedHours = hours
-    updateClockSprite(object, state)
-    return state
+    local activeObject, activeState = BPC_ClockSwap.sync(object, state)
+    return activeState, activeObject
 end
 
 function BPC_ClockState.isRunning(state)
@@ -147,34 +103,47 @@ function BPC_ClockState.isOutOfSync(state)
 end
 
 function BPC_ClockState.setTime(object)
-    local state = BPC_ClockState.update(object)
+    local state, activeObject = BPC_ClockState.update(object)
     if not BPC_ClockState.isRunning(state) then return end
     state.displayedMinutes = wrapMinutes(nowMinutes())
-    object:transmitModData()
+    activeObject:transmitModData()
 end
 
 function BPC_ClockState.removeBattery(object)
-    local state = BPC_ClockState.update(object)
+    local state, activeObject = BPC_ClockState.update(object)
     if not state.hasBattery then return nil end
     local charge = state.charge
     state.charge = 0
     state.hasBattery = false
-    updateClockSprite(object, state)
-    object:transmitModData()
+    local newObject, _, success = BPC_ClockSwap.sync(activeObject, state)
+    if not success then
+        state.charge = charge
+        state.hasBattery = true
+        return nil
+    end
+    newObject:transmitModData()
     return charge
 end
 
 function BPC_ClockState.insertBattery(object, charge, hasWatch)
-    local state = BPC_ClockState.update(object)
+    local state, activeObject = BPC_ClockState.update(object)
     if state.hasBattery then return false end
+    local previousCharge = state.charge
+    local previousMinutes = state.displayedMinutes
     state.charge = math.max(0, math.min(100, charge))
     state.hasBattery = true
     if BPC_ClockState.isRunning(state)
         and options().AutoSetOnReplace ~= false and hasWatch then
         state.displayedMinutes = wrapMinutes(nowMinutes())
     end
-    updateClockSprite(object, state)
-    object:transmitModData()
+    local newObject, _, success = BPC_ClockSwap.sync(activeObject, state)
+    if not success then
+        state.charge = previousCharge
+        state.hasBattery = false
+        state.displayedMinutes = previousMinutes
+        return false
+    end
+    newObject:transmitModData()
     return true
 end
 

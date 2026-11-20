@@ -76,10 +76,11 @@ local function fillClockMenu(data)
         if not BPC_ClockState.isClock(object) then return false end
         if data.test then return true end
 
-        local state = BPC_ClockState.update(object)
+        local state, activeObject = BPC_ClockState.update(object)
+        seenObjects[activeObject] = true
         if state.hasBattery then
             context:addOption(getText("ContextMenu_BPC_RemoveBattery", roundCharge(state.charge)),
-                player, removeBattery, object)
+                player, removeBattery, activeObject)
         else
             local batteries = {}
             collectBatteries(player:getInventory(), batteries)
@@ -94,7 +95,7 @@ local function fillClockMenu(data)
                     local battery = entry.item
                     local charge = battery.getUsedDelta and battery:getUsedDelta() * 100 or 100
                     subMenu:addOption(string.format("%s (%d%%)", battery:getDisplayName(), roundCharge(charge)),
-                        player, insertBattery, object, battery, entry.container)
+                        player, insertBattery, activeObject, battery, entry.container)
                 end
             end
         end
@@ -102,7 +103,7 @@ local function fillClockMenu(data)
         if BPC_ClockState.isRunning(state) and BPC_ClockState.isOutOfSync(state)
             and findWatch(player:getInventory()) then
             context:addOption(getText("ContextMenu_BPC_SetClock"),
-                player, setClock, object)
+                player, setClock, activeObject)
         end
         return false
     end
