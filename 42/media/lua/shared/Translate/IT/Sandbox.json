@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consumo batteria (% per giorno di gioco)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Punti percentuali persi per giorno di gioco. 0 disattiva il consumo.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Carica iniziale minima (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Carica iniziale minima possibile prima dell'usura facoltativa dovuta ai giorni trascorsi.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Invecchiamento degli orologi non visitati",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Alla prima scoperta, applica il consumo dei giorni di gioco trascorsi. Prima o poi tutti gli orologi intatti si scaricheranno.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Imposta automaticamente l'ora inserendo una batteria",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Se attivo, l'ora corretta viene impostata solo se il personaggio porta con sé un orologio da polso."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Carica iniziale minima possibile prima dell'usura facoltativa dovuta ai giorni trascorsi."
 }

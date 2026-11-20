@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batteriforbrug (% pr. spildag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Procentpoint mistet pr. spildag. 0 slår batteriforbrug fra.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Mindste startladning (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lavest mulige startladning før valgfrit aldersbetinget forbrug.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Lad ubesøgte ure ældes",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Træk batteriforbrug for forløbne spildage fra, når et ur opdages første gang. Til sidst løber alle uberørte ure tør.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Indstil tiden automatisk ved isætning af batteri",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Når slået til indstilles den korrekte tid kun, hvis figuren har et armbåndsur på sig."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lavest mulige startladning før valgfrit aldersbetinget forbrug."
 }

@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batteriforbruk (% per spilldag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Prosentpoeng brukt per spilldag. 0 deaktiverer batteriforbruk.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minste startlading (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lavest mulig startlading før valgfritt forbruk basert på dager som har gått.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "La ubesøkte klokker eldes",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Trekk fra batteriforbruk for spilldager som har gått når en klokke oppdages første gang. Til slutt går alle urørte klokker tomme.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Still klokken automatisk når batteri settes inn",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Når aktivert stilles riktig tid bare hvis karakteren har et armbåndsur med seg."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lavest mulig startlading før valgfritt forbruk basert på dager som har gått."
 }

@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Elemmerülés (% játéknaponként)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Játéknaponként elveszített százalékpontok. A 0 kikapcsolja a merülést.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimális kezdeti töltöttség (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "A lehető legalacsonyabb kezdeti töltöttség az opcionális időalapú merülés előtt.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Fel nem fedezett órák öregedése",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Az első felfedezéskor levonja az eltelt játéknapok szerinti merülést. Idővel minden érintetlen óra lemerül.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Idő automatikus beállítása elem behelyezésekor",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Ha engedélyezett, a pontos idő csak akkor áll be, ha a karakternél van karóra."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "A lehető legalacsonyabb kezdeti töltöttség az opcionális időalapú merülés előtt."
 }

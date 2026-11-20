@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batterieverbrauch (% pro Spieltag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Prozentpunkte, die pro Spieltag verloren gehen. 0 deaktiviert den Batterieverbrauch.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimale Anfangsladung (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Niedrigste mögliche Anfangsladung vor optionalem Abzug für vergangene Spieltage.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Unentdeckte Uhren altern lassen",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Bei der ersten Entdeckung wird der Verbrauch für vergangene Spieltage abgezogen. Irgendwann sind alle unberührten Uhren leer.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Uhrzeit beim Einlegen einer Batterie automatisch einstellen",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Wenn aktiviert, wird die richtige Uhrzeit nur eingestellt, wenn die Spielfigur eine Armbanduhr bei sich hat."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Niedrigste mögliche Anfangsladung vor optionalem Abzug für vergangene Spieltage."
 }

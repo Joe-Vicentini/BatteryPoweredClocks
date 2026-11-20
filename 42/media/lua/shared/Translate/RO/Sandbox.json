@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consum baterie (% pe zi de joc)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Puncte procentuale pierdute pe zi de joc. 0 dezactivează consumul.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Încărcare inițială minimă (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Cel mai mic nivel inițial posibil înainte de uzura opțională în timp.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Îmbătrânirea ceasurilor nevizitate",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "La prima descoperire se aplică uzura pentru zilele de joc trecute. În cele din urmă, toate ceasurile neatinse rămân fără baterie.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Setează automat ora la introducerea bateriei",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Dacă este activat, ora corectă se setează doar dacă personajul are un ceas de mână asupra sa."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Cel mai mic nivel inițial posibil înainte de uzura opțională în timp."
 }

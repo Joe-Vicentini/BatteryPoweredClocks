@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pariston kuluminen (% pelipäivässä)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Pelipäivässä kuluvat prosenttiyksiköt. 0 poistaa kulumisen käytöstä.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Alkuvarauksen vähimmäistaso (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Pienin mahdollinen alkuvaraus ennen valinnaista ajan kulumisen vaikutusta.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Kuluta löytämättömien kellojen paristoja",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Ensimmäisellä löytökerralla vähennetään kuluneiden pelipäivien mukainen varaus. Lopulta kaikki koskemattomat kellot tyhjenevät.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Aseta aika automaattisesti pariston vaihdossa",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Jos käytössä, oikea aika asetetaan vain, kun hahmolla on rannekello mukanaan."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Pienin mahdollinen alkuvaraus ennen valinnaista ajan kulumisen vaikutusta."
 }

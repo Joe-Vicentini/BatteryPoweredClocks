@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "電池耗電量（每遊戲日 %）",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "每個遊戲日消耗的電量百分點。設為 0 可停用耗電。",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "最低初始電量（%）",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "套用可選的末日經過時間耗電前，可能出現的最低初始電量。",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "讓未造訪的時鐘老化",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "首次發現時鐘時，依經過的遊戲日數扣除電量。最終所有未碰過的時鐘都會沒電。",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "裝入電池時自動校時",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "啟用後，只有角色攜帶手錶時，裝入電池才會設定正確時間。"
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "套用可選的末日經過時間耗電前，可能出現的最低初始電量。"
 }

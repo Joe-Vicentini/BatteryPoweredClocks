@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "건전지 소모량 (게임 내 하루당 %)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "게임 내 하루마다 감소하는 충전량의 퍼센트포인트입니다. 0이면 소모하지 않습니다.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "최소 초기 충전량 (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "경과 일수에 따른 선택적 소모를 적용하기 전의 최소 초기 충전량입니다.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "방문하지 않은 시계 노후화",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "시계를 처음 발견할 때 경과한 게임 내 날짜만큼 건전지를 소모합니다. 결국 손대지 않은 시계도 방전됩니다.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "건전지 삽입 시 자동으로 시간 설정",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "활성화하면 캐릭터가 손목시계를 소지한 경우에만 정확한 시간으로 설정합니다."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "경과 일수에 따른 선택적 소모를 적용하기 전의 최소 초기 충전량입니다."
 }

@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Battery drain (% per in-game day)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Percentage points lost per in-game day. 0 disables battery drain.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimum initial charge (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lowest possible starting charge before optional apocalypse-age drain is applied.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Age unvisited clocks",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Apply elapsed in-game days of drain to a clock when first encountered. Eventually every untouched clock will run out.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Automatically set time when inserting a battery",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "If enabled, inserting a battery sets the correct time only when the character carries a watch."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lowest possible starting charge before optional apocalypse-age drain is applied."
 }

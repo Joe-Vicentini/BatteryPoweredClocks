@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consommation des piles (% par jour de jeu)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Points de pourcentage perdus par jour de jeu. 0 désactive la consommation.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Charge initiale minimale (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Charge initiale la plus basse avant l'usure facultative liée aux jours écoulés.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Vieillir les horloges non visitées",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Applique l'usure correspondant aux jours de jeu écoulés lors de la première découverte. Toutes les horloges intactes finiront par s'arrêter.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Régler automatiquement l'heure lors de l'insertion d'une pile",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Si activé, l'heure correcte n'est réglée que si le personnage transporte une montre."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Charge initiale la plus basse avant l'usure facultative liée aux jours écoulés."
 }

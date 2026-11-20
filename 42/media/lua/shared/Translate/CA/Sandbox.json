@@ -3,9 +3,5 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consum de pila (% per dia de joc)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Punts percentuals consumits per dia de joc. 0 desactiva el consum.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Càrrega inicial mínima (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Càrrega inicial més baixa possible abans d'aplicar l'envelliment opcional.",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Envellir els rellotges no visitats",
-  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Aplica el consum dels dies de joc transcorreguts en descobrir un rellotge per primera vegada. Al final, tots s'esgotaran.",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Ajustar l'hora automàticament en inserir una pila",
-  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Si s'activa, s'ajusta l'hora correcta només si el personatge porta un rellotge de polsera."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Càrrega inicial més baixa possible abans d'aplicar l'envelliment opcional."
 }
