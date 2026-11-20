@@ -30,8 +30,10 @@ local function collectBatteries(container, batteries)
     end
 end
 
-local function roundCharge(charge)
-    return math.floor(math.max(0, math.min(100, charge)) + 0.5)
+-- Use identical rounding and percent formatting in both battery menus.
+local function formatCharge(charge)
+    local percent = math.floor(math.max(0, math.min(100, charge)) + 0.5)
+    return string.format("%d%%", percent)
 end
 
 local function batteryCharge(battery)
@@ -84,7 +86,7 @@ local function fillClockMenu(data)
         seenObjects[activeObject] = true
         if state.hasBattery then
             local removeOption = context:addOption(
-                getText("ContextMenu_BPC_RemoveBattery") .. " (" .. roundCharge(state.charge) .. "%)",
+                getText("ContextMenu_BPC_RemoveBattery") .. " (" .. formatCharge(state.charge) .. ")",
                 player, removeBattery, activeObject)
             removeOption.iconTexture = getTexture("Item_Battery")
         else
@@ -101,7 +103,7 @@ local function fillClockMenu(data)
                     local battery = entry.item
                     local charge = batteryCharge(battery)
                     local batteryOption = subMenu:addOption(
-                        string.format("%s (%d%%)", battery:getDisplayName(), roundCharge(charge)),
+                        string.format("%s (%s)", battery:getDisplayName(), formatCharge(charge)),
                         player, insertBattery, activeObject, battery, entry.container)
                     batteryOption.iconTexture = battery:getTex()
                 end
