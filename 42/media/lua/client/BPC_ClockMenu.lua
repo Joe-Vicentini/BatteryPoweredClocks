@@ -1,4 +1,5 @@
 require "BPC_ClockState"
+require "BPC_ClockAction"
 
 local function findWatch(container)
     local items = container:getItems()
@@ -40,7 +41,7 @@ local function batteryCharge(battery)
     return math.max(0, math.min(100, battery:getCurrentUsesFloat() * 100))
 end
 
-local function removeBattery(player, object)
+local function finishRemoveBattery(player, object)
     if not BPC_ClockState.isClock(object) then return end
     local charge = BPC_ClockState.removeBattery(object)
     if not charge then return end
@@ -50,7 +51,7 @@ local function removeBattery(player, object)
     end
 end
 
-local function insertBattery(player, object, battery, container)
+local function finishInsertBattery(player, object, battery, container)
     if not BPC_ClockState.isClock(object) then return end
     local state = BPC_ClockState.update(object)
     if state.hasBattery then return end
@@ -61,10 +62,29 @@ local function insertBattery(player, object, battery, container)
     container:Remove(battery)
 end
 
-local function setClock(player, object)
+local function finishSetClock(player, object)
     if BPC_ClockState.isClock(object) and findWatch(player:getInventory()) then
         BPC_ClockState.setTime(object)
     end
+end
+
+local function queueClockAction(player, object, mode, callback, battery, container)
+    if not BPC_ClockState.isClock(object) or not BPC_ClockAction.isNear(player, object) then return end
+    if luautils.walkAdjObject(player, object, true, true) then
+        ISTimedActionQueue.add(BPC_ClockAction:new(player, object, mode, callback, battery, container))
+    end
+end
+
+local function removeBattery(player, object)
+    queueClockAction(player, object, "remove", finishRemoveBattery)
+end
+
+local function insertBattery(player, object, battery, container)
+    queueClockAction(player, object, "insert", finishInsertBattery, battery, container)
+end
+
+local function setClock(player, object)
+    queueClockAction(player, object, "set", finishSetClock)
 end
 
 -- Build 42's world-menu element system runs even when the legacy menu finds no interaction.
@@ -81,7 +101,7 @@ local function fillClockMenu(data)
     local function addClock(object)
         if not object or seenObjects[object] then return false end
         seenObjects[object] = true
-        if not BPC_ClockState.isClock(object) then return false end
+        if not BPC_ClockState.isClock(object) or not BPC_ClockAction.isNear(player, object) then return false end
         foundClock = true
         if data.test then return true end
 
