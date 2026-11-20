@@ -48,6 +48,41 @@ local function overlayName(object)
     return sprite and sprite:getName() or nil
 end
 
+-- The animated-attachment pass draws onOverlay after clock hands. Keep the
+-- normal stopped overlay for save persistence; this additional instance is
+-- transient and must be removed when power returns.
+local stoppedOnOverlays = setmetatable({}, { __mode = "k" })
+
+local function clearAnimatedOverlay(object)
+    local instance = stoppedOnOverlays[object]
+    if not instance then return end
+    local cleared = pcall(function()
+        if object:getOnOverlay() == instance then
+            object:clearOnOverlay()
+        else
+            IsoSpriteInstance.add(instance)
+        end
+    end)
+    if cleared then stoppedOnOverlays[object] = nil end
+end
+
+local function showAnimatedOverlay(object, spriteName)
+    -- Leave any pre-existing engine or other-mod onOverlay alone.
+    if stoppedOnOverlays[object] or object:getOnOverlay() then return end
+    local created, instance = pcall(function()
+        local sprite = IsoSpriteManager.instance:getSprite(spriteName)
+        return sprite and IsoSpriteInstance.get(sprite) or nil
+    end)
+    if not created or not instance then return end
+
+    local applied = pcall(function() object:setOnOverlay(instance) end)
+    if applied then
+        stoppedOnOverlays[object] = instance
+    else
+        pcall(function() IsoSpriteInstance.add(instance) end)
+    end
+end
+
 function BPC_ClockVisual.sync(object, state)
     if (isClient and isClient()) or (isServer and isServer()) then return end
 
@@ -65,6 +100,7 @@ function BPC_ClockVisual.sync(object, state)
     -- animate. Restore any overlay applied by an older version of the mod.
     if (state.hasBattery and state.charge > 0)
         or BACK_CLOCK_SPRITES[object:getSpriteName()] then
+        clearAnimatedOverlay(object)
         if data.BPC_StoppedOverlay then
             local previous = data.BPC_PreviousOverlaySprite
             local restored = pcall(function()
@@ -81,7 +117,10 @@ function BPC_ClockVisual.sync(object, state)
 
     local staticSprite = STATIC_CLOCK_SPRITES[object:getSpriteName()]
     if not staticSprite then return end
-    if data.BPC_StoppedOverlay and overlayName(object) == staticSprite then return end
+    if data.BPC_StoppedOverlay and overlayName(object) == staticSprite then
+        showAnimatedOverlay(object, staticSprite)
+        return
+    end
 
     local previous = data.BPC_PreviousOverlaySprite
     if not data.BPC_StoppedOverlay then
@@ -92,4 +131,5 @@ function BPC_ClockVisual.sync(object, state)
     data.BPC_PreviousOverlaySprite = previous
     data.BPC_StoppedOverlay = true
     object:transmitModData()
+    showAnimatedOverlay(object, staticSprite)
 end
