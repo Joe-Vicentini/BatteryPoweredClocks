@@ -17,19 +17,21 @@ local function findWatch(container)
     return false
 end
 
-local function findBattery(container)
+local function collectBatteries(container, batteries)
     local items = container:getItems()
     for i = 0, items:size() - 1 do
         local item = items:get(i)
         if item:getFullType() == "Base.Battery" then
-            return item, container
+            batteries[#batteries + 1] = { item = item, container = container }
         end
         if item:IsInventoryContainer() then
-            local found, owner = findBattery(item:getInventory())
-            if found then return found, owner end
+            collectBatteries(item:getInventory(), batteries)
         end
     end
-    return nil, nil
+end
+
+local function roundCharge(charge)
+    return math.floor(math.max(0, math.min(100, charge)) + 0.5)
 end
 
 local function removeBattery(player, object)
@@ -42,12 +44,12 @@ local function removeBattery(player, object)
     end
 end
 
-local function insertBattery(player, object)
+local function insertBattery(player, object, battery, container)
     if not BPC_ClockState.isClock(object) then return end
     local state = BPC_ClockState.update(object)
     if state.hasBattery then return end
-    local battery, container = findBattery(player:getInventory())
-    if not battery then return end
+    if not battery or battery:getFullType() ~= "Base.Battery"
+        or battery:getContainer() ~= container then return end
     local charge = battery.getUsedDelta and battery:getUsedDelta() * 100 or 100
     if not BPC_ClockState.insertBattery(object, charge, findWatch(player:getInventory())) then return end
     container:Remove(battery)
@@ -71,22 +73,24 @@ local function fillClockMenu(data)
             if data.test then return true end
             seen[object] = true
             local state = BPC_ClockState.update(object)
-            local label
-            if BPC_ClockState.isRunning(state) then
-                label = getText("ContextMenu_BPC_ClockStatus",
-                    BPC_ClockState.formatTime(state), math.floor(state.charge))
-            else
-                label = getText("ContextMenu_BPC_ClockStopped", BPC_ClockState.formatTime(state))
-            end
-            local status = context:addOption(label, nil, nil)
-            status.notAvailable = true
 
             if state.hasBattery then
-                context:addOption(getText("ContextMenu_BPC_RemoveBattery"),
+                context:addOption(getText("ContextMenu_BPC_RemoveBattery", roundCharge(state.charge)),
                     player, removeBattery, object)
-            elseif findBattery(player:getInventory()) then
-                context:addOption(getText("ContextMenu_BPC_InsertBattery"),
-                    player, insertBattery, object)
+            else
+                local batteries = {}
+                collectBatteries(player:getInventory(), batteries)
+                if #batteries > 0 then
+                    local option = context:addOption(getText("ContextMenu_BPC_InsertBattery"), nil, nil)
+                    local subMenu = context:getNew(context)
+                    context:addSubMenu(option, subMenu)
+                    for _, entry in ipairs(batteries) do
+                        local battery = entry.item
+                        local charge = battery.getUsedDelta and battery:getUsedDelta() * 100 or 100
+                        subMenu:addOption(string.format("%s (%d%%)", battery:getDisplayName(), roundCharge(charge)),
+                            player, insertBattery, object, battery, entry.container)
+                    end
+                end
             end
 
             if BPC_ClockState.isRunning(state) and BPC_ClockState.isOutOfSync(state)

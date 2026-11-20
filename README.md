@@ -12,10 +12,12 @@ enable the mod in that save's mod list and restart the game before testing.
 
 ## Behavior
 
-Right-click a wall clock to inspect its indicated time and remaining battery charge, remove
-its battery, insert a `Base.Battery` from your inventory, or set an out-of-sync running
-clock when carrying a watch. Watches do not need to be equipped. Inserting a replacement
-battery can set the time automatically (sandbox option), but only if you carry a watch.
+Right-click a wall clock to remove its battery (with remaining charge shown), or select
+a specific `Base.Battery` from the **Insert clock battery** submenu. Each battery is
+listed with its current display name and rounded charge, including batteries inside
+carried containers. You can set an out-of-sync running clock when carrying a watch.
+Watches do not need to be equipped. Inserting a replacement battery can set the time
+automatically (sandbox option), but only if you carry a watch.
 Otherwise the clock resumes from its frozen time. Empty and removed batteries stop the
 clock's simulated time.
 
