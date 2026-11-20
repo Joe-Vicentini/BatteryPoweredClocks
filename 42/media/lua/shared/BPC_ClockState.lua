@@ -1,12 +1,27 @@
 -- Clock state lives on each encountered world object, never in a map-wide registry.
 BPC_ClockState = {}
 
+-- Includes the original tiles and their animated replacements from
+-- Build 42's generated media/scripts/clocks.txt.
 local CLOCK_SPRITES = {
-    location_community_school_01_32 = true, -- Wall Clock (south)
-    location_community_school_01_33 = true, -- Wall Clock
-    location_community_school_01_34 = true, -- Wall Clock
-    location_community_school_01_35 = true, -- Wall Clock
-    walls_decoration_01_105 = true,        -- Square Wall Clock
+    location_community_school_01_32 = true,
+    location_community_school_01_33 = true,
+    location_community_school_01_34 = true,
+    location_community_school_01_35 = true,
+    walls_decoration_01_104 = true,
+    walls_decoration_01_105 = true,
+    walls_detailing_02_56 = true,
+    walls_detailing_02_57 = true,
+    walls_detailing_02_58 = true,
+    walls_detailing_02_59 = true,
+    animated_clock_01_0 = true,
+    animated_clock_01_1 = true,
+    animated_clock_01_2 = true,
+    animated_clock_01_3 = true,
+    animated_clock_01_4 = true,
+    animated_clock_01_5 = true,
+    animated_clock_01_6 = true,
+    animated_clock_01_7 = true,
 }
 
 local function options()

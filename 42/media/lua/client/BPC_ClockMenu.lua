@@ -67,38 +67,67 @@ local function fillClockMenu(data)
     local context = data.context
     if not player or not context then return false end
 
-    local seen = {}
-    for _, object in ipairs(data.objects or {}) do
-        if not seen[object] and BPC_ClockState.isClock(object) then
-            if data.test then return true end
-            seen[object] = true
-            local state = BPC_ClockState.update(object)
+    local seenObjects = {}
+    local seenSquares = {}
 
-            if state.hasBattery then
-                context:addOption(getText("ContextMenu_BPC_RemoveBattery", roundCharge(state.charge)),
-                    player, removeBattery, object)
+    local function addClock(object)
+        if not object or seenObjects[object] then return false end
+        seenObjects[object] = true
+        if not BPC_ClockState.isClock(object) then return false end
+        if data.test then return true end
+
+        local state = BPC_ClockState.update(object)
+        if state.hasBattery then
+            context:addOption(getText("ContextMenu_BPC_RemoveBattery", roundCharge(state.charge)),
+                player, removeBattery, object)
+        else
+            local batteries = {}
+            collectBatteries(player:getInventory(), batteries)
+            local option = context:addOption(getText("ContextMenu_BPC_InsertBattery"), nil, nil)
+            local subMenu = context:getNew(context)
+            context:addSubMenu(option, subMenu)
+            if #batteries == 0 then
+                local missing = subMenu:addOption(getText("ContextMenu_BPC_NoBatteryFound"), nil, nil)
+                missing.notAvailable = true
             else
-                local batteries = {}
-                collectBatteries(player:getInventory(), batteries)
-                if #batteries > 0 then
-                    local option = context:addOption(getText("ContextMenu_BPC_InsertBattery"), nil, nil)
-                    local subMenu = context:getNew(context)
-                    context:addSubMenu(option, subMenu)
-                    for _, entry in ipairs(batteries) do
-                        local battery = entry.item
-                        local charge = battery.getUsedDelta and battery:getUsedDelta() * 100 or 100
-                        subMenu:addOption(string.format("%s (%d%%)", battery:getDisplayName(), roundCharge(charge)),
-                            player, insertBattery, object, battery, entry.container)
-                    end
+                for _, entry in ipairs(batteries) do
+                    local battery = entry.item
+                    local charge = battery.getUsedDelta and battery:getUsedDelta() * 100 or 100
+                    subMenu:addOption(string.format("%s (%d%%)", battery:getDisplayName(), roundCharge(charge)),
+                        player, insertBattery, object, battery, entry.container)
                 end
             end
-
-            if BPC_ClockState.isRunning(state) and BPC_ClockState.isOutOfSync(state)
-                and findWatch(player:getInventory()) then
-                context:addOption(getText("ContextMenu_BPC_SetClock"),
-                    player, setClock, object)
-            end
         end
+
+        if BPC_ClockState.isRunning(state) and BPC_ClockState.isOutOfSync(state)
+            and findWatch(player:getInventory()) then
+            context:addOption(getText("ContextMenu_BPC_SetClock"),
+                player, setClock, object)
+        end
+        return false
+    end
+
+    local function checkSquare(square)
+        if not square or seenSquares[square] then return false end
+        seenSquares[square] = true
+        local objects = square:getObjects()
+        for i = 0, objects:size() - 1 do
+            if addClock(objects:get(i)) then return true end
+        end
+        return false
+    end
+
+    -- Only examine objects/squares supplied by the clicked context menu.
+    for _, object in ipairs(data.objects or {}) do
+        if addClock(object) then return true end
+        if object and checkSquare(object:getSquare()) then return true end
+    end
+    if data.object then
+        if addClock(data.object) then return true end
+        if checkSquare(data.object:getSquare()) then return true end
+    end
+    for _, square in ipairs(data.squares or {}) do
+        if checkSquare(square) then return true end
     end
     return false
 end

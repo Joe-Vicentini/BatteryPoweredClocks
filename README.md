@@ -15,7 +15,9 @@ enable the mod in that save's mod list and restart the game before testing.
 Right-click a wall clock to remove its battery (with remaining charge shown), or select
 a specific `Base.Battery` from the **Insert clock battery** submenu. Each battery is
 listed with its current display name and rounded charge, including batteries inside
-carried containers. You can set an out-of-sync running clock when carrying a watch.
+carried containers. When no batteries are carried, the submenu instead shows a disabled
+"No batteries found in inventory" entry. You can set an out-of-sync running clock
+when carrying a watch.
 Watches do not need to be equipped. Inserting a replacement battery can set the time
 automatically (sandbox option), but only if you carry a watch.
 Otherwise the clock resumes from its frozen time. Empty and removed batteries stop the
@@ -37,6 +39,8 @@ including when the clock was unloaded.
 
 This version tracks the clock time in per-object mod data and shows it in the context
 menu. **It does not override the vanilla animated clock-hand rendering**; the physical
-hands may still show the game's current time. It recognizes the known Wall Clock and
-Square Wall Clock tile sprites, not every decorative clock or modded sprite.
+hands may still show the game's current time. The menu recognizes the clock tiles
+and animated replacement sprites declared in Build 42's generated `clocks.txt`,
+as well as the previously recognized Wall Clock variants. Modded clocks with other
+sprites are not automatically recognized.
 Multiplayer server-authoritative interaction and in-game validation remain outstanding.
