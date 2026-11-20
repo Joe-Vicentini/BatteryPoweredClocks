@@ -31,6 +31,30 @@ function BPC_ClockVisual.isStoppedSprite(object)
     return original ~= nil and STATIC_CLOCK_SPRITES[original] ~= nil
 end
 
+-- Prepare optional hand-painted clock faces before the world/menu callbacks run.
+-- Runtime sprites are overlays ONLY: never assign one to a world object's
+-- main sprite, which needs a persistent vanilla tile ID to survive reloads.
+local stoppedFaceSprites = {}
+Events.OnGameStart.Add(function()
+    if (isClient and isClient()) or (isServer and isServer()) then return end
+
+    local manager = IsoSpriteManager and IsoSpriteManager.instance
+    if not manager then return end
+    for _, original in pairs(STATIC_CLOCK_SPRITES) do
+        if not stoppedFaceSprites[original] then
+            local alias = "BPC_StoppedFace_" .. original
+            local ok, loaded = pcall(function()
+                local sprite = manager:getSprite(alias) or manager:AddSprite(alias)
+                if not sprite then return false end
+                sprite:setName(alias)
+                if not sprite:LoadSingleTexture(original) then return false end
+                return manager:getSprite(alias) == sprite
+            end)
+            if ok and loaded then stoppedFaceSprites[original] = alias end
+        end
+    end
+end)
+
 local function overlayName(object)
     local sprite = object:getOverlaySprite()
     return sprite and sprite:getName() or nil
@@ -66,13 +90,22 @@ function BPC_ClockVisual.sync(object, state)
 
     local staticSprite = STATIC_CLOCK_SPRITES[object:getSpriteName()]
     if not staticSprite then return end
-    if data.BPC_StoppedOverlay and overlayName(object) == staticSprite then return end
+    local faceSprite = stoppedFaceSprites[staticSprite] or staticSprite
+    if data.BPC_StoppedOverlay and overlayName(object) == faceSprite then return end
 
     local previous = data.BPC_PreviousOverlaySprite
     if not data.BPC_StoppedOverlay then
         previous = overlayName(object) or false
     end
-    local applied = pcall(function() object:setOverlaySprite(staticSprite, false) end)
+    local applied = pcall(function() object:setOverlaySprite(faceSprite, false) end)
+    if applied and faceSprite ~= staticSprite and overlayName(object) ~= faceSprite then
+        applied = false
+    end
+    if not applied and faceSprite ~= staticSprite then
+        -- Stop retrying a rejected alias and keep the tested visual.
+        stoppedFaceSprites[staticSprite] = nil
+        applied = pcall(function() object:setOverlaySprite(staticSprite, false) end)
+    end
     if not applied then return end
     data.BPC_PreviousOverlaySprite = previous
     data.BPC_StoppedOverlay = true
