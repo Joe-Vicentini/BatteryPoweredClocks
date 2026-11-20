@@ -34,13 +34,17 @@ local function roundCharge(charge)
     return math.floor(math.max(0, math.min(100, charge)) + 0.5)
 end
 
+local function batteryCharge(battery)
+    return math.max(0, math.min(100, battery:getCurrentUsesFloat() * 100))
+end
+
 local function removeBattery(player, object)
     if not BPC_ClockState.isClock(object) then return end
     local charge = BPC_ClockState.removeBattery(object)
     if not charge then return end
     local item = player:getInventory():AddItem("Base.Battery")
-    if item and item.setUsedDelta then
-        item:setUsedDelta(charge / 100)
+    if item then
+        item:setCurrentUsesFloat(math.max(0, math.min(1, charge / 100)))
     end
 end
 
@@ -50,7 +54,7 @@ local function insertBattery(player, object, battery, container)
     if state.hasBattery then return end
     if not battery or battery:getFullType() ~= "Base.Battery"
         or battery:getContainer() ~= container then return end
-    local charge = battery.getUsedDelta and battery:getUsedDelta() * 100 or 100
+    local charge = batteryCharge(battery)
     if not BPC_ClockState.insertBattery(object, charge, findWatch(player:getInventory())) then return end
     container:Remove(battery)
 end
@@ -95,7 +99,7 @@ local function fillClockMenu(data)
             else
                 for _, entry in ipairs(batteries) do
                     local battery = entry.item
-                    local charge = battery.getUsedDelta and battery:getUsedDelta() * 100 or 100
+                    local charge = batteryCharge(battery)
                     local batteryOption = subMenu:addOption(
                         string.format("%s (%d%%)", battery:getDisplayName(), roundCharge(charge)),
                         player, insertBattery, activeObject, battery, entry.container)
