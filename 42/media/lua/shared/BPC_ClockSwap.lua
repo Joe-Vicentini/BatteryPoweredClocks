@@ -1,6 +1,7 @@
 -- Experimental Build 42 stopped-clock object replacement.
--- Set false to restore any encountered dummy to a normal clock, then revert this commit.
-local TEST_DUMMY_CLOCKS = true
+-- Disabled after the unsuccessful object-replacement test. Existing dummies are
+-- restored to regular clock objects when encountered.
+local TEST_DUMMY_CLOCKS = false
 
 BPC_ClockSwap = {}
 

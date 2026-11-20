@@ -1,6 +1,7 @@
 -- Clock state lives on each encountered world object, never in a map-wide registry.
 BPC_ClockState = {}
 require "BPC_ClockSwap"
+require "BPC_ClockVisual"
 
 -- Includes the original tiles and their animated replacements from
 -- Build 42's generated media/scripts/clocks.txt.
@@ -48,7 +49,8 @@ end
 function BPC_ClockState.isClock(object)
     if not object or not object:getSquare() then return false end
     local sprite = object:getSpriteName()
-    return BPC_ClockSwap.isDummy(object) or (sprite ~= nil and CLOCK_SPRITES[sprite] == true)
+    return BPC_ClockSwap.isDummy(object) or BPC_ClockVisual.isStoppedSprite(object)
+        or (sprite ~= nil and CLOCK_SPRITES[sprite] == true)
 end
 
 -- A clock is only initialized when a player opens its context menu.
@@ -90,6 +92,7 @@ function BPC_ClockState.update(object)
     end
     state.updatedHours = hours
     local activeObject, activeState = BPC_ClockSwap.sync(object, state)
+    BPC_ClockVisual.sync(activeObject, activeState)
     return activeState, activeObject
 end
 
@@ -121,6 +124,7 @@ function BPC_ClockState.removeBattery(object)
         state.hasBattery = true
         return nil
     end
+    BPC_ClockVisual.sync(newObject, state)
     newObject:transmitModData()
     return charge
 end
@@ -143,6 +147,7 @@ function BPC_ClockState.insertBattery(object, charge, hasWatch)
         state.displayedMinutes = previousMinutes
         return false
     end
+    BPC_ClockVisual.sync(newObject, state)
     newObject:transmitModData()
     return true
 end
