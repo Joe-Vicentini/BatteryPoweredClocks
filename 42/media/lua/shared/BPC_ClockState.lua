@@ -62,7 +62,7 @@ function BPC_ClockState.get(object)
     local minCharge = math.max(0, math.min(100, tonumber(options().MinInitialCharge) or 20))
     local initial = minCharge + (100 - minCharge) * ZombRand(10001) / 10000
     local rate = drainRate()
-    local age = options().AgeInitialBatteries ~= false and hours or 0
+    local age = hours
     local charge = math.max(0, initial - age * rate)
     local stoppedHours = hours
     if charge <= 0 and rate > 0 and age > 0 then
@@ -137,7 +137,7 @@ function BPC_ClockState.insertBattery(object, charge, hasWatch)
     state.charge = math.max(0, math.min(100, charge))
     state.hasBattery = true
     if BPC_ClockState.isRunning(state)
-        and options().AutoSetOnReplace ~= false and hasWatch then
+        and hasWatch then
         state.displayedMinutes = wrapMinutes(nowMinutes())
     end
     local newObject, _, success = BPC_ClockSwap.sync(activeObject, state)

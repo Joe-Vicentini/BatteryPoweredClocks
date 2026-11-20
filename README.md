@@ -19,7 +19,7 @@ carried containers. When no batteries are carried, the submenu instead shows a d
 "No batteries found in inventory" entry. You can set an out-of-sync running clock
 when carrying a watch.
 Watches do not need to be equipped. Inserting a replacement battery can set the time
-automatically (sandbox option), but only if you carry a watch.
+automatically, but only if you carry a watch.
 Otherwise the clock resumes from its frozen time. Empty and removed batteries stop the
 clock's simulated time.
 
@@ -32,8 +32,9 @@ including when the clock was unloaded.
 
 - `BatteryPoweredClocks.DrainPerDay`: percentage points drained per in-game day (default 0.5).
 - `BatteryPoweredClocks.MinInitialCharge`: minimum randomly rolled starting charge (default 20%).
-- `BatteryPoweredClocks.AgeInitialBatteries`: subtract elapsed in-game days of drain when first discovered (default on).
-- `BatteryPoweredClocks.AutoSetOnReplace`: auto-sync on battery insertion if the player has a watch (default on).
+
+Clocks always lose charge for elapsed in-game days before first discovery. Inserting a
+battery always synchronizes the time when the player carries a watch.
 
 ## Stopped-clock visuals and loaded clocks
 

@@ -19,19 +19,3 @@ option BatteryPoweredClocks.MinInitialCharge
     page = BatteryPoweredClocks,
     translation = BatteryPoweredClocks_MinInitialCharge,
 }
-
-option BatteryPoweredClocks.AgeInitialBatteries
-{
-    type = boolean,
-    default = true,
-    page = BatteryPoweredClocks,
-    translation = BatteryPoweredClocks_AgeInitialBatteries,
-}
-
-option BatteryPoweredClocks.AutoSetOnReplace
-{
-    type = boolean,
-    default = true,
-    page = BatteryPoweredClocks,
-    translation = BatteryPoweredClocks_AutoSetOnReplace,
-}
