@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "นาฬิกาใช้แบตเตอรี่",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "การใช้แบตเตอรี่ (% ต่อวันในเกม)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "เปอร์เซ็นต์พอยต์ที่ลดลงต่อวันในเกม ตั้งเป็น 0 เพื่อปิดการใช้แบตเตอรี่",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "พลังงานเริ่มต้นขั้นต่ำ (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "พลังงานเริ่มต้นต่ำสุดก่อนหักพลังงานตามวันเวลาที่ผ่านไป (หากเปิดใช้)",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "ให้แบตเตอรี่นาฬิกาที่ไม่เคยพบเสื่อมลง",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "เมื่อพบนาฬิกาครั้งแรก จะหักพลังงานตามจำนวนวันในเกมที่ผ่านไป ในที่สุดนาฬิกาที่ยังไม่เคยแตะต้องจะหมดพลังงาน",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "ตั้งเวลาอัตโนมัติเมื่อใส่แบตเตอรี่",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "หากเปิดใช้ จะตั้งเวลาที่ถูกต้องเฉพาะเมื่อผู้เล่นพกนาฬิกาข้อมือเท่านั้น"
+}

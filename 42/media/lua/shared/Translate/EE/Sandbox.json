@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Patareitoitel kellad",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Patarei kulu (% mängupäevas)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Iga mängupäevaga kaotatavad protsendipunktid. 0 lülitab patarei kulu välja.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimaalne alglaetus (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Väikseim võimalik alglaetus enne valikulist aja möödumisest tulenevat kulu.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Vananda külastamata kellasid",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Kella esmakordsel leidmisel arvesta möödunud mängupäevade patareikulu. Lõpuks saavad kõik puutumata kellad tühjaks.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Sea kellaaeg patarei sisestamisel automaatselt",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Kui lubatud, seatakse õige aeg ainult siis, kui tegelasel on käekell kaasas."
+}

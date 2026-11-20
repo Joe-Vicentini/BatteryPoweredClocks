@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Klokken op batterijen",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batterijverbruik (% per speldag)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Procentpunten verbruikt per speldag. 0 schakelt batterijverbruik uit.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimale beginlading (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Laagst mogelijke beginlading vóór optionele slijtage door verstreken dagen.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Niet-bezochte klokken laten verouderen",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Trek bij de eerste ontdekking het verbruik van verstreken speldagen af. Uiteindelijk raken alle onaangeraakte klokken leeg.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Tijd automatisch instellen bij plaatsen batterij",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Indien ingeschakeld wordt de juiste tijd alleen ingesteld als het personage een polshorloge bij zich heeft."
+}

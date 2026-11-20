@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Часы на батарейках",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Расход батарейки (% за игровой день)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Процентных пунктов заряда за игровой день. 0 отключает расход.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Минимальный начальный заряд (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Минимальный возможный начальный заряд до необязательного учёта прошедших дней.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Старение неосмотренных часов",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "При первом обнаружении часов вычитается заряд за прошедшие игровые дни. В конце концов все нетронутые часы разрядятся.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Автоматически выставлять время при установке батарейки",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Если включено, правильное время устанавливается только при наличии наручных часов у персонажа."
+}

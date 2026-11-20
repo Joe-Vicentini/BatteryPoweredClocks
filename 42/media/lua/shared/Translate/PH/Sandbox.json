@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Mga orasan na de-baterya",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pagkaubos ng baterya (% bawat araw sa laro)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Mga porsiyentong puntos na nababawas bawat araw sa laro. Ang 0 ay walang pagkaubos.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Pinakamababang paunang karga (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Pinakamababang posibleng panimulang karga bago ilapat ang opsyonal na pagkaubos dahil sa lumipas na panahon.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Palumain ang mga hindi pa nabisitang orasan",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Sa unang pagkakita sa orasan, ibawas ang karga ayon sa mga araw na lumipas sa laro. Mauubos din sa huli ang lahat ng hindi nagalaw na orasan.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Awtomatikong itakda ang oras kapag naglagay ng baterya",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Kapag pinagana, itatakda lang ang tamang oras kung may dalang relo ang karakter."
+}

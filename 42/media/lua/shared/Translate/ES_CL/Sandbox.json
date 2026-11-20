@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Relojes a pila",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consumo de pila (% por día de juego)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Puntos porcentuales consumidos por día de juego. 0 desactiva el consumo.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Carga inicial mínima (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Carga inicial más baja posible antes del desgaste opcional por el tiempo transcurrido.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Envejecer relojes no visitados",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Aplica el consumo de los días transcurridos al encontrar un reloj por primera vez. Con el tiempo, todos los relojes sin tocar se quedan sin pila.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Ajustar la hora automáticamente al poner una pila",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Si se activa, solo se ajusta la hora correcta cuando el personaje lleva un reloj de pulsera."
+}

@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Годинники на батарейках",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Розряд батарейки (% за ігровий день)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Відсоткових пунктів заряду за ігровий день. 0 вимикає розряд.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Мінімальний початковий заряд (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Найнижчий можливий початковий заряд до необов'язкового врахування минулих днів.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Старіння невідвіданих годинників",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Під час першого виявлення віднімається заряд за минулі ігрові дні. Зрештою всі недоторкані годинники розрядяться.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Автоматично встановлювати час після вставлення батарейки",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Якщо ввімкнено, правильний час встановлюється лише коли персонаж має при собі наручний годинник."
+}

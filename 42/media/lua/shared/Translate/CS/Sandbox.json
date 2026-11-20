@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Hodiny na baterie",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Vybíjení baterie (% za herní den)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Procentní body ztracené za herní den. 0 vypne vybíjení.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimální počáteční nabití (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Nejnižší možné počáteční nabití před volitelným zohledněním uplynulých dnů.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Stárnutí nenavštívených hodin",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Při prvním nalezení hodin se odečte vybití za uplynulé herní dny. Nakonec se všechny nedotčené hodiny vybijí.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Automaticky nastavit čas při vložení baterie",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Je-li zapnuto, správný čas se nastaví pouze tehdy, pokud má postava u sebe náramkové hodinky."
+}

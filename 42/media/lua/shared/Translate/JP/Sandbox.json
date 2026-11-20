@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "電池式の壁時計",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "電池消耗量（ゲーム内1日あたり %）",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "ゲーム内の1日で減少する充電率のポイント数。0で消耗を無効にします。",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "初期充電量の下限（%）",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "経過日数による任意の消耗を適用する前の、初期充電量の最低値です。",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "未発見の時計の電池を消耗させる",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "時計を初めて発見したとき、経過したゲーム内日数分の電池を消耗させます。いずれ未接触の時計も電池切れになります。",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "電池挿入時に時刻を自動設定",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "有効な場合、キャラクターが腕時計を所持しているときだけ正しい時刻に設定します。"
+}

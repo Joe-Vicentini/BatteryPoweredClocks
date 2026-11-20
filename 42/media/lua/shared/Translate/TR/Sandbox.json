@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Pilli saatler",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pil tüketimi (oyun günü başına %)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Her oyun gününde kaybedilen yüzde puanı. 0 pil tüketimini kapatır.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Asgari başlangıç şarjı (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Geçen günlere bağlı isteğe bağlı tüketimden önceki en düşük başlangıç şarjı.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Ziyaret edilmemiş saatleri eskit",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Saat ilk kez bulunduğunda geçen oyun günlerinin pil tüketimini uygular. Sonunda dokunulmamış tüm saatlerin pili biter.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Pil takıldığında saati otomatik ayarla",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Etkinse doğru saat yalnızca karakterin yanında bir kol saati varsa ayarlanır."
+}

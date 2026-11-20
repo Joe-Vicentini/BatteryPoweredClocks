@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Battery-aangedrewe horlosies",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batteryverbruik (% per speldag)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Persentasiepunte wat per speldag verloor word. 0 skakel batteryverbruik af.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimum aanvanklike lading (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Laagste moontlike beginlading voordat opsionele veroudering toegepas word.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Verouder onbesoekte horlosies",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Pas verbruik volgens verstreke speldae toe wanneer 'n horlosie die eerste keer ontdek word. Uiteindelik sal alle onaangeraakte horlosies leeg raak.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Stel tyd outomaties in wanneer 'n battery geplaas word",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "As dit aangeskakel is, word die regte tyd slegs ingestel as die karakter 'n polshorlosie dra."
+}

@@ -1,0 +1,11 @@
+{
+  "Sandbox_BatteryPoweredClocks": "Zegary na baterie",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay": "Zużycie baterii (% na dzień gry)",
+  "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Punkty procentowe tracone na dzień gry. 0 wyłącza zużycie baterii.",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimalny poziom początkowego naładowania (%)",
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Najniższy możliwy poziom początkowy przed opcjonalnym zużyciem za minione dni.",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries": "Starzenie nieodwiedzonych zegarów",
+  "Sandbox_BatteryPoweredClocks_AgeInitialBatteries_tooltip": "Przy pierwszym odkryciu zegara odejmij zużycie za minione dni gry. Z czasem wszystkie nietknięte zegary się rozładują.",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace": "Automatyczne ustawianie czasu po włożeniu baterii",
+  "Sandbox_BatteryPoweredClocks_AutoSetOnReplace_tooltip": "Po włączeniu poprawna godzina jest ustawiana tylko wtedy, gdy postać ma przy sobie zegarek."
+}
