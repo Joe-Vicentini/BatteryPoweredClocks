@@ -23,6 +23,18 @@ local STATIC_CLOCK_SPRITES = {
     animated_clock_01_7 = "walls_detailing_02_59",
 }
 
+-- These are the back-facing/unhanded clock tiles. They already have no
+-- animated hands, and overlaying them can interfere with selecting the clock.
+-- Also handles the handless animated replacements from vanilla clocks.txt.
+local BACK_CLOCK_SPRITES = {
+    location_community_school_01_34 = true,
+    location_community_school_01_35 = true,
+    walls_detailing_02_57 = true,
+    walls_detailing_02_59 = true,
+    animated_clock_01_5 = true,
+    animated_clock_01_7 = true,
+}
+
 -- Recognize clocks saved by the earlier runtime-sprite experiment, even if
 -- their temporary sprite could not be resolved when the chunk was loaded.
 function BPC_ClockVisual.isStoppedSprite(object)
@@ -49,7 +61,10 @@ function BPC_ClockVisual.sync(object, state)
         object:transmitModData()
     end
 
-    if state.hasBattery and state.charge > 0 then
+    -- A back-facing clock needs no stopped overlay: there are no hands to
+    -- animate. Restore any overlay applied by an older version of the mod.
+    if (state.hasBattery and state.charge > 0)
+        or BACK_CLOCK_SPRITES[object:getSpriteName()] then
         if data.BPC_StoppedOverlay then
             local previous = data.BPC_PreviousOverlaySprite
             local restored = pcall(function()
