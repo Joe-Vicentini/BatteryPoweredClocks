@@ -79,8 +79,10 @@ local function fillClockMenu(data)
         local state, activeObject = BPC_ClockState.update(object)
         seenObjects[activeObject] = true
         if state.hasBattery then
-            context:addOption(getText("ContextMenu_BPC_RemoveBattery", roundCharge(state.charge)),
+            local removeOption = context:addOption(
+                getText("ContextMenu_BPC_RemoveBattery") .. " (" .. roundCharge(state.charge) .. "%)",
                 player, removeBattery, activeObject)
+            removeOption.iconTexture = getTexture("Item_Battery")
         else
             local batteries = {}
             collectBatteries(player:getInventory(), batteries)
@@ -94,8 +96,10 @@ local function fillClockMenu(data)
                 for _, entry in ipairs(batteries) do
                     local battery = entry.item
                     local charge = battery.getUsedDelta and battery:getUsedDelta() * 100 or 100
-                    subMenu:addOption(string.format("%s (%d%%)", battery:getDisplayName(), roundCharge(charge)),
+                    local batteryOption = subMenu:addOption(
+                        string.format("%s (%d%%)", battery:getDisplayName(), roundCharge(charge)),
                         player, insertBattery, activeObject, battery, entry.container)
+                    batteryOption.iconTexture = battery:getTex()
                 end
             end
         end

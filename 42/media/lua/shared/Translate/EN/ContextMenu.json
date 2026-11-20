@@ -1,5 +1,5 @@
 {
-  "ContextMenu_BPC_RemoveBattery": "Remove clock battery (%1%)",
+  "ContextMenu_BPC_RemoveBattery": "Remove clock battery",
   "ContextMenu_BPC_InsertBattery": "Insert clock battery",
   "ContextMenu_BPC_NoBatteryFound": "No batteries found in inventory",
   "ContextMenu_BPC_SetClock": "Set clock time"
