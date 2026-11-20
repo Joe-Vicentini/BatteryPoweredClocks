@@ -75,11 +75,14 @@ local function fillClockMenu(data)
 
     local seenObjects = {}
     local seenSquares = {}
+    local clickedSquares = {}
+    local foundClock = false
 
     local function addClock(object)
         if not object or seenObjects[object] then return false end
         seenObjects[object] = true
         if not BPC_ClockState.isClock(object) then return false end
+        foundClock = true
         if data.test then return true end
 
         local state, activeObject = BPC_ClockState.update(object)
@@ -121,6 +124,7 @@ local function fillClockMenu(data)
     local function checkSquare(square)
         if not square or seenSquares[square] then return false end
         seenSquares[square] = true
+        clickedSquares[#clickedSquares + 1] = square
         local objects = square:getObjects()
         for i = 0, objects:size() - 1 do
             if addClock(objects:get(i)) then return true end
@@ -139,6 +143,29 @@ local function fillClockMenu(data)
     end
     for _, square in ipairs(data.squares or {}) do
         if checkSquare(square) then return true end
+    end
+
+    -- The back of a north/west-wall clock may be clicked from the next tile,
+    -- while its actual IsoObject belongs to the tile south/east of that click.
+    -- Only recover a previously encountered clock with its battery removed.
+    if not foundClock then
+        for _, square in ipairs(clickedSquares) do
+            local adjacent = { square:getS() or false, square:getE() or false }
+            for _, neighbor in ipairs(adjacent) do
+                if neighbor then
+                    local objects = neighbor:getObjects()
+                    for i = 0, objects:size() - 1 do
+                        local object = objects:get(i)
+                        if not seenObjects[object] and BPC_ClockState.isClock(object) then
+                            local state = object:getModData().BPC_Clock
+                            if state and state.hasBattery == false then
+                                if addClock(object) then return true end
+                            end
+                        end
+                    end
+                end
+            end
+        end
     end
     return false
 end
