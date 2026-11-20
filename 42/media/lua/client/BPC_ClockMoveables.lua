@@ -41,8 +41,8 @@ function ISMoveableSpriteProps:placeMoveable(character, square, spriteName, forc
 end
 
 local originalPlaceInternal = ISMoveableSpriteProps.placeMoveableInternal
-function ISMoveableSpriteProps:placeMoveableInternal(square, item, spriteName)
-    local object = originalPlaceInternal(self, square, item, spriteName)
+function ISMoveableSpriteProps:placeMoveableInternal(character, square, item, spriteName)
+    local object = originalPlaceInternal(self, character, square, item, spriteName)
     if not self.BPC_PlacingClockFromInventory or not BPC_ClockState.isClock(object) then
         return object
     end
