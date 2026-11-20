@@ -31,28 +31,6 @@ function BPC_ClockVisual.isStoppedSprite(object)
     return original ~= nil and STATIC_CLOCK_SPRITES[original] ~= nil
 end
 
--- This name is not in the vanilla clock scripts. Its texture is the original
--- game tile, with the stationary hands painted into the artwork.
-local loadedFaces = {}
-local function stoppedFaceSprite(original)
-    local alias = "BPC_StaticFace_" .. original
-    if loadedFaces[alias] then return alias end
-
-    local ok, name = pcall(function()
-        local manager = IsoSpriteManager.instance
-        local sprite = manager:getSprite(alias) or manager:AddSprite(alias)
-        if not sprite then return nil end
-        if not sprite:LoadSingleTexture(original) then return nil end
-        return alias
-    end)
-    if ok and name then
-        loadedFaces[alias] = true
-        return name
-    end
-    -- Keep the already-tested handless overlay if the texture is unavailable.
-    return original
-end
-
 local function overlayName(object)
     local sprite = object:getOverlaySprite()
     return sprite and sprite:getName() or nil
@@ -88,14 +66,13 @@ function BPC_ClockVisual.sync(object, state)
 
     local staticSprite = STATIC_CLOCK_SPRITES[object:getSpriteName()]
     if not staticSprite then return end
-    local faceSprite = stoppedFaceSprite(staticSprite)
-    if data.BPC_StoppedOverlay and overlayName(object) == faceSprite then return end
+    if data.BPC_StoppedOverlay and overlayName(object) == staticSprite then return end
 
     local previous = data.BPC_PreviousOverlaySprite
     if not data.BPC_StoppedOverlay then
         previous = overlayName(object) or false
     end
-    local applied = pcall(function() object:setOverlaySprite(faceSprite, false) end)
+    local applied = pcall(function() object:setOverlaySprite(staticSprite, false) end)
     if not applied then return end
     data.BPC_PreviousOverlaySprite = previous
     data.BPC_StoppedOverlay = true
