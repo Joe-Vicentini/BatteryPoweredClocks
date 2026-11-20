@@ -35,11 +35,23 @@ including when the clock was unloaded.
 - `BatteryPoweredClocks.AgeInitialBatteries`: subtract elapsed in-game days of drain when first discovered (default on).
 - `BatteryPoweredClocks.AutoSetOnReplace`: auto-sync on battery insertion if the player has a watch (default on).
 
+## Experimental stopped-clock sprite test
+
+The `TEST_STATIC_STOPPED_CLOCKS` flag near the top of
+`42/media/lua/shared/BPC_ClockState.lua` is enabled for an opt-in-to-development
+visual experiment. When a discovered clock loses power, the mod reassigns the
+original vanilla clock sprite from the game's `clocks.txt`. When a powered battery
+is inserted, it restores the sprite the object had before stopping. No world
+objects are replaced or removed. To disable the experiment, change the flag to
+`false`; previously affected clocks will restore their saved sprite the next
+time their context menu is opened. Test in a backup save because Build 42 may
+continue animating clock hands even after reassigning a static sprite.
+
 ## Current limits
 
-This version tracks the clock time in per-object mod data and shows it in the context
-menu. **It does not override the vanilla animated clock-hand rendering**; the physical
-hands may still show the game's current time. The menu recognizes the clock tiles
+This version tracks clock time in per-object mod data. The experimental sprite
+switch **is not proven to stop the game's animated hands**; the physical hands
+may still show the game's current time. The menu recognizes the clock tiles
 and animated replacement sprites declared in Build 42's generated `clocks.txt`,
 as well as the previously recognized Wall Clock variants. Modded clocks with other
 sprites are not automatically recognized.
