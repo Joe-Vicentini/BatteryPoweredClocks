@@ -64,3 +64,28 @@ function ISMoveableSpriteProps:placeMoveableInternal(character, square, item, sp
     BPC_ClockVisual.sync(object, data.BPC_Clock)
     return object
 end
+
+-- Scrapping uses a separate vanilla path from picking up furniture.
+-- Return the battery only after the clock has actually been dismantled.
+local originalScrapInternal = ISMoveableSpriteProps.scrapObjectInternal
+function ISMoveableSpriteProps:scrapObjectInternal(character, scrapDef, square, object, scrapResult, chance, perkName)
+    local charge
+    if character and scrapDef and BPC_ClockState.isClock(object)
+        and not ((isClient and isClient()) or (isServer and isServer())) then
+        local state = BPC_ClockState.get(object)
+        if state.hasBattery then
+            local elapsed = math.max(0, getGameTime():getWorldAgeHours() - (state.updatedHours or getGameTime():getWorldAgeHours()))
+            local rate = math.max(0, tonumber((SandboxVars.BatteryPoweredClocks or {}).DrainPerDay) or 0.5) / 24
+            charge = math.max(0, state.charge - elapsed * rate)
+        end
+    end
+
+    local result = originalScrapInternal(self, character, scrapDef, square, object, scrapResult, chance, perkName)
+    if charge and object:getObjectIndex() == -1 then
+        local battery = character:getInventory():AddItem("Base.Battery")
+        if battery then
+            battery:setCurrentUsesFloat(math.max(0, math.min(1, charge / 100)))
+        end
+    end
+    return result
+end
