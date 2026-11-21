@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "การใช้แบตเตอรี่ (% ต่อวันในเกม)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "เปอร์เซ็นต์พอยต์ที่ลดลงต่อวันในเกม ตั้งเป็น 0 เพื่อปิดการใช้แบตเตอรี่",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "พลังงานเริ่มต้นขั้นต่ำ (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "พลังงานเริ่มต้นต่ำสุดก่อนหักพลังงานตามวันเวลาที่ผ่านไป (หากเปิดใช้)"
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "พลังงานเริ่มต้นต่ำสุดก่อนหักพลังงานตามวันเวลาที่ผ่านไป (หากเปิดใช้)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "นาฬิกาไม่มีแบตเตอรี่ (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "โอกาสที่นาฬิกาแขวนผนังจะปรากฏโดยไม่มีแบตเตอรี่ 0 หมายถึงทุกเรือนมีแบตเตอรี่"
 }

@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pil tüketimi (oyun günü başına %)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Her oyun gününde kaybedilen yüzde puanı. 0 pil tüketimini kapatır.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Asgari başlangıç şarjı (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Geçen günlere bağlı isteğe bağlı tüketimden önceki en düşük başlangıç şarjı."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Geçen günlere bağlı isteğe bağlı tüketimden önceki en düşük başlangıç şarjı.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Pilsiz duvar saatleri (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Duvar saatinin pilsiz ortaya çıkma olasılığı. 0, tüm saatlerde pil olduğu anlamına gelir."
 }

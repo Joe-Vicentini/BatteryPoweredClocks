@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batteryverbruik (% per speldag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Persentasiepunte wat per speldag verloor word. 0 skakel batteryverbruik af.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimum aanvanklike lading (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Laagste moontlike beginlading voordat opsionele veroudering toegepas word."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Laagste moontlike beginlading voordat opsionele veroudering toegepas word.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Horlosies sonder batterye (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Kans dat 'n muurhorlosie sonder 'n battery begin. 0 beteken alle horlosies het batterye."
 }

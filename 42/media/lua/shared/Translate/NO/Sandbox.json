@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batteriforbruk (% per spilldag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Prosentpoeng brukt per spilldag. 0 deaktiverer batteriforbruk.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minste startlading (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lavest mulig startlading før valgfritt forbruk basert på dager som har gått."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lavest mulig startlading før valgfritt forbruk basert på dager som har gått.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Klokker uten batterier (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Sannsynlighet for at en veggklok starter uten batteri. 0 betyr at alle klokker har batterier."
 }

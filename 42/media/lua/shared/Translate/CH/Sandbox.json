@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "電池耗電量（每遊戲日 %）",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "每個遊戲日消耗的電量百分點。設為 0 可停用耗電。",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "最低初始電量（%）",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "套用可選的末日經過時間耗電前，可能出現的最低初始電量。"
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "套用可選的末日經過時間耗電前，可能出現的最低初始電量。",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "沒有電池的掛鐘（%）",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "掛鐘初次生成時沒有電池的機率。0 表示所有掛鐘都有電池。"
 }

@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consumo da pilha (% por dia no jogo)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Pontos percentuais perdidos por dia no jogo. 0 desativa o consumo.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Carga inicial mínima (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Menor carga inicial possível antes do desgaste opcional pelos dias transcorridos."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Menor carga inicial possível antes do desgaste opcional pelos dias transcorridos.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Relógios sem pilhas (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Chance de um relógio de parede aparecer sem pilha. 0 significa que todos têm pilha."
 }

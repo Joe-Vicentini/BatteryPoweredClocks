@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "電池消耗量（ゲーム内1日あたり %）",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "ゲーム内の1日で減少する充電率のポイント数。0で消耗を無効にします。",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "初期充電量の下限（%）",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "経過日数による任意の消耗を適用する前の、初期充電量の最低値です。"
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "経過日数による任意の消耗を適用する前の、初期充電量の最低値です。",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "電池のない掛け時計（%）",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "掛け時計が初めて出現するときに電池が入っていない確率です。0 ではすべての時計に電池が入ります。"
 }

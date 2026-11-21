@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batterijverbruik (% per speldag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Procentpunten verbruikt per speldag. 0 schakelt batterijverbruik uit.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimale beginlading (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Laagst mogelijke beginlading vóór optionele slijtage door verstreken dagen."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Laagst mogelijke beginlading vóór optionele slijtage door verstreken dagen.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Klokken zonder batterijen (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Kans dat een wandklok zonder batterij verschijnt. 0 betekent dat alle klokken batterijen hebben."
 }

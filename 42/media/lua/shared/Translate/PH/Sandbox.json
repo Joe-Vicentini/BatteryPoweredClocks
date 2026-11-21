@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pagkaubos ng baterya (% bawat araw sa laro)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Mga porsiyentong puntos na nababawas bawat araw sa laro. Ang 0 ay walang pagkaubos.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Pinakamababang paunang karga (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Pinakamababang posibleng panimulang karga bago ilapat ang opsyonal na pagkaubos dahil sa lumipas na panahon."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Pinakamababang posibleng panimulang karga bago ilapat ang opsyonal na pagkaubos dahil sa lumipas na panahon.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Mga orasan na walang baterya (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Tsansa na ang orasan sa dingding ay magsimula nang walang baterya. Ang 0 ay nangangahulugang lahat ay may baterya."
 }

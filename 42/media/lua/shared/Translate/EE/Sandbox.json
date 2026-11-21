@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Patarei kulu (% mängupäevas)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Iga mängupäevaga kaotatavad protsendipunktid. 0 lülitab patarei kulu välja.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimaalne alglaetus (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Väikseim võimalik alglaetus enne valikulist aja möödumisest tulenevat kulu."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Väikseim võimalik alglaetus enne valikulist aja möödumisest tulenevat kulu.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Patareita seinakellad (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Tõenäosus, et seinakell ilmub ilma patareita. 0 tähendab, et kõigil kelladel on patarei."
 }

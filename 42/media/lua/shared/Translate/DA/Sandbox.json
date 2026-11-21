@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batteriforbrug (% pr. spildag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Procentpoint mistet pr. spildag. 0 slår batteriforbrug fra.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Mindste startladning (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lavest mulige startladning før valgfrit aldersbetinget forbrug."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lavest mulige startladning før valgfrit aldersbetinget forbrug.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Ure uden batterier (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Sandsynlighed for, at et vægur starter uden batteri. 0 betyder, at alle ure har batterier."
 }

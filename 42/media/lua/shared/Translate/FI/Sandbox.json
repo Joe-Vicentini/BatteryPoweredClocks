@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pariston kuluminen (% pelipäivässä)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Pelipäivässä kuluvat prosenttiyksiköt. 0 poistaa kulumisen käytöstä.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Alkuvarauksen vähimmäistaso (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Pienin mahdollinen alkuvaraus ennen valinnaista ajan kulumisen vaikutusta."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Pienin mahdollinen alkuvaraus ennen valinnaista ajan kulumisen vaikutusta.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Kellot ilman paristoja (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Todennäköisyys, että seinäkello ilmestyy ilman paristoa. 0 tarkoittaa, että kaikissa on paristo."
 }

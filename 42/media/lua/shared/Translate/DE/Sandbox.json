@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Batterieverbrauch (% pro Spieltag)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Prozentpunkte, die pro Spieltag verloren gehen. 0 deaktiviert den Batterieverbrauch.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimale Anfangsladung (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Niedrigste mögliche Anfangsladung vor optionalem Abzug für vergangene Spieltage."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Niedrigste mögliche Anfangsladung vor optionalem Abzug für vergangene Spieltage.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Wanduhren ohne Batterien (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Wahrscheinlichkeit, dass eine Wanduhr ohne Batterie erscheint. 0 bedeutet, dass alle Uhren Batterien haben."
 }

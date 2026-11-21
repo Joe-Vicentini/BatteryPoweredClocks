@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Battery drain (% per in-game day)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Percentage points lost per in-game day. 0 disables battery drain.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimum initial charge (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lowest possible starting charge before optional apocalypse-age drain is applied."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Lowest possible starting charge before optional apocalypse-age drain is applied.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Clocks without batteries (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Chance that a wall clock starts without a battery. 0 means all clocks start with batteries."
 }

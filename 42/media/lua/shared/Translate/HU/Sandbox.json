@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Elemmerülés (% játéknaponként)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Játéknaponként elveszített százalékpontok. A 0 kikapcsolja a merülést.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimális kezdeti töltöttség (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "A lehető legalacsonyabb kezdeti töltöttség az opcionális időalapú merülés előtt."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "A lehető legalacsonyabb kezdeti töltöttség az opcionális időalapú merülés előtt.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Elem nélküli faliórák (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Annak esélye, hogy egy falióra elem nélkül jelenik meg. 0 esetén minden órában van elem."
 }

@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "건전지 소모량 (게임 내 하루당 %)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "게임 내 하루마다 감소하는 충전량의 퍼센트포인트입니다. 0이면 소모하지 않습니다.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "최소 초기 충전량 (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "경과 일수에 따른 선택적 소모를 적용하기 전의 최소 초기 충전량입니다."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "경과 일수에 따른 선택적 소모를 적용하기 전의 최소 초기 충전량입니다.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "건전지가 없는 벽시계 (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "벽시계가 처음 나타날 때 건전지가 없을 확률입니다. 0이면 모든 시계에 건전지가 있습니다."
 }

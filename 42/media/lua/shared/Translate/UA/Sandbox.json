@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Розряд батарейки (% за ігровий день)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Відсоткових пунктів заряду за ігровий день. 0 вимикає розряд.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Мінімальний початковий заряд (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Найнижчий можливий початковий заряд до необов'язкового врахування минулих днів."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Найнижчий можливий початковий заряд до необов'язкового врахування минулих днів.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Годинники без батарейок (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Імовірність появи настінного годинника без батарейки. 0 означає, що всі годинники мають батарейки."
 }

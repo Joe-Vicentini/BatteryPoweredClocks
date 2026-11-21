@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Vybíjení baterie (% za herní den)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Procentní body ztracené za herní den. 0 vypne vybíjení.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Minimální počáteční nabití (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Nejnižší možné počáteční nabití před volitelným zohledněním uplynulých dnů."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Nejnižší možné počáteční nabití před volitelným zohledněním uplynulých dnů.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Hodiny bez baterie (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Pravděpodobnost, že nástěnné hodiny budou při prvním výskytu bez baterie. 0 znamená, že všechny mají baterii."
 }

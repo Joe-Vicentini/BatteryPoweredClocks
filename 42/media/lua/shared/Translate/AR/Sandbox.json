@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consumo de batería (% por día de juego)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Puntos porcentuales perdidos por día de juego. 0 desactiva el consumo.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Carga inicial mínima (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Carga inicial más baja posible antes del desgaste opcional por días transcurridos."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Carga inicial más baja posible antes del desgaste opcional por días transcurridos.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "ساعات الحائط بلا بطاريات (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "احتمال ظهور ساعة حائط من دون بطارية. تعني القيمة 0 أن جميع الساعات تحتوي على بطاريات."
 }

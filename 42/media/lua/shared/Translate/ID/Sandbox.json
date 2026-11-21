@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Pengurasan baterai (% per hari permainan)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Poin persentase yang berkurang setiap hari permainan. 0 menonaktifkan pengurasan.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Daya awal minimum (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Daya awal terendah sebelum pengurangan opsional berdasarkan hari yang berlalu."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Daya awal terendah sebelum pengurangan opsional berdasarkan hari yang berlalu.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Jam tanpa baterai (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Peluang jam dinding muncul tanpa baterai. 0 berarti semua jam memiliki baterai."
 }

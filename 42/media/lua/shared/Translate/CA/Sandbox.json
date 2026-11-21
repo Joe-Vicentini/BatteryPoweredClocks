@@ -3,5 +3,7 @@
   "Sandbox_BatteryPoweredClocks_DrainPerDay": "Consum de pila (% per dia de joc)",
   "Sandbox_BatteryPoweredClocks_DrainPerDay_tooltip": "Punts percentuals consumits per dia de joc. 0 desactiva el consum.",
   "Sandbox_BatteryPoweredClocks_MinInitialCharge": "Càrrega inicial mínima (%)",
-  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Càrrega inicial més baixa possible abans d'aplicar l'envelliment opcional."
+  "Sandbox_BatteryPoweredClocks_MinInitialCharge_tooltip": "Càrrega inicial més baixa possible abans d'aplicar l'envelliment opcional.",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance": "Rellotges sense pila (%)",
+  "Sandbox_BatteryPoweredClocks_NoBatteryChance_tooltip": "Probabilitat que un rellotge de paret aparegui sense pila. 0 vol dir que tots tenen pila."
 }

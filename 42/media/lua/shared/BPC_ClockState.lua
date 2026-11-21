@@ -61,6 +61,8 @@ function BPC_ClockState.get(object)
     local hours = nowHours()
     local minCharge = math.max(0, math.min(100, tonumber(options().MinInitialCharge) or 20))
     local initial = minCharge + (100 - minCharge) * ZombRand(10001) / 10000
+    local emptyChance = math.max(0, math.min(100, tonumber(options().NoBatteryChance) or 0))
+    local startsEmpty = emptyChance > 0 and ZombRand(10000) < emptyChance * 100
     local rate = drainRate()
     local age = hours
     local charge = math.max(0, initial - age * rate)
@@ -70,9 +72,10 @@ function BPC_ClockState.get(object)
         stoppedHours = hours - (age - initial / rate)
     end
     local dataClock = {
-        charge = charge,
-        hasBattery = true,
-        displayedMinutes = wrapMinutes(nowMinutes() - (hours - stoppedHours) * 60),
+        charge = startsEmpty and 0 or charge,
+        hasBattery = not startsEmpty,
+        displayedMinutes = startsEmpty and wrapMinutes(nowMinutes())
+            or wrapMinutes(nowMinutes() - (hours - stoppedHours) * 60),
         updatedHours = hours,
     }
     data.BPC_Clock = dataClock
